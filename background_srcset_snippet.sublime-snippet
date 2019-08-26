@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+<?php 
+\$desktop_image = \$content->getImage('desktop_image', NULL, NULL, true);
+\$tablet_image  = \$content->getData('tablet_image') ? \$content->getImage('tablet_image', NULL, NULL, true) : \$desktop_image;
+\$mobile_image  = \$content->getData('mobile_image') ? \$content->getImage('mobile_image', NULL, NULL, true) : \$desktop_image; ?>
+		
+<div class="bg-srcset background-cover" 
+	 data-mobile="<?php echo \$mobile_image ?>" 
+	 data-tablet="<?php echo \$tablet_image ?>"
+	 data-desktop="<?php echo \$desktop_image ?>" 
+	 data-mobile-breakpoint="600" 
+	 data-tablet-breakpoint="1024">
+	${1:}
+</div>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bg-srcset</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

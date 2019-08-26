@@ -1,0 +1,31 @@
+<snippet>
+	<content><![CDATA[
+<?php
+/**
+* ${1:Class Description}
+*/
+namespace FirstScribe\\${2:Module}\\${3:dir};
+
+use Psr\Log\LoggerInterface;
+
+class ${4:ClassName}
+{
+	protected \$logger;
+
+	public function __construct(
+		LoggerInterface \$logger
+	) {
+		\$this->logger = \$logger;
+	}
+	
+	public function ${5:yourMethod}() {
+		//\$this->logger->debug('debug message');
+		${6}
+	}
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_2_class_skeleton</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

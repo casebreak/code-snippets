@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+hex2rgb(${1:\$hex})
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hm_generic_hex2rgb</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,18 @@
+<snippet>
+  <content><![CDATA[
+<?php
+/**
+* The template for displaying ${1:name}
+*
+*
+* @author Scott Duncan <sduncan@firstscribe.com>
+* @version ${2:month}-${3:day}-2018
+*/
+?>
+
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>wpdoc</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

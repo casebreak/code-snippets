@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+getImageById(${1:\$imageId})
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hm_wordpress_getImageById</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

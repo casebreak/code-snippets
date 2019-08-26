@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+<?php \$acmMenu = \$block->getLayout()->createBlock('Blackbird\MenuManager\Block\Menu')->setData('menu', '${1:menuid}'); ?>
+<nav class="custom-navigation">
+    <ul>
+        <?= \$acmMenu->getMenuHtml(); ?>
+    </ul>
+</nav>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_2_get_acm_menu_phtml</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

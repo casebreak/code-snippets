@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+<?php 
+\$desktop_image = \$content->getImage('desktop_image', NULL, NULL, true);
+\$mobile_image  = \$content->getData('mobile_image') ? \$content->getImage('mobile_image', NULL, NULL, true) : \$desktop_image;
+\$tablet_image  = \$content->getData('tablet_image') ? \$content->getImage('tablet_image', NULL, NULL, true) : \$desktop_image; ?>
+
+<picture>
+	<source media="(min-width: 1025px)" srcset="<?php echo \$desktop_image ?>">
+	<source media="(min-width: 601px)" srcset="<?php echo \$tablet_image ?>">
+	<img src="<?php echo \$mobile_image ?>" alt="" class="responsive">
+</picture>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>srcset</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

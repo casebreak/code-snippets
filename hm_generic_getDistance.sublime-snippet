@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+getDistance(${1:\$lat1, \$lon1, \$lat2, \$lon2, \$unit})
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hm_generic_getDistance</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

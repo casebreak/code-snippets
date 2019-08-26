@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+protected \$resourceConnection;
+\Magento\Framework\App\ResourceConnection \$resourceConnection
+\$this->resourceConnection = \$resourceConnection;
+
+\$connection = \$this->resourceConnection->getConnection();
+\$sql        = "SELECT `additional_information` FROM `cminds_multiuseraccounts_subaccount` WHERE `customer_id` = \$customerId";
+\$connection->query(\$sql);
+\$result = \$connection->fetchAll(\$sql);
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_2_sql</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

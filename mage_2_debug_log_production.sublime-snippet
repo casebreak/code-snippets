@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+<?php
+\$writer = new \Zend\Log\Writer\Stream(BP . '/var/log/${1:filename}.log');
+\$logger = new \Zend\Log\Logger();
+\$logger->addWriter(\$writer);
+\$logger->info(${2:message});
+?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_2_debug_log_production</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

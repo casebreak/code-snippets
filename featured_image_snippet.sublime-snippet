@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+<?php if(get_the_post_thumbnail()) :
+	\$image_id = get_post_meta(\$post -> ID, '_thumbnail_id', false)[0];
+	\$image = get_post(\$image_id);
+	the_post_thumbnail('${1:featured-image}', array('class' => '${2:responsive}', 'title' => \$image -> post_title));
+endif; ?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>featured_image</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

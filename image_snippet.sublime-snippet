@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+<?php \$image = get_field('${1:field_slug}'); ?>
+<img src="<?php echo \$image['url'] ?>" alt="<?php echo \$image['alt'] ?>" title="<?php echo \$image['title'] ?>" class="${2:max-image}">
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>image</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

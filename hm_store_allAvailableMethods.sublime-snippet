@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+getStoreName()
+getStorePhone()
+getStoreHours()
+getStoreCountry()
+getStorePostCode()
+getStoreCity()
+getStoreAddressOne()
+getStoreAddressTwo()
+getStoreRegion()
+getRegionName(\region_id)
+getSalesEmail()
+getSalesEmailName()
+getCustomerSupportEmail()
+getCustomerSupportEmailName()
+getCustomOneEmail()
+getCustomOneEmailName()
+getCustomTwoEmail()
+getCustomTwoEmailName()
+getGeneralEmail()
+getGeneralEmailName()
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hm_store_allAvailableMethods</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

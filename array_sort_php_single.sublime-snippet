@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+<?php
+function sortByKey(\$a, \$b) {
+	\$a = \$a['${2:key}'];
+	\$b = \$b['${2:key}'];
+
+	if (\$a == \$b)
+		return 0;
+
+	return (\$a < \$b) ? -1 : 1;
+}
+usort(\$${1:myArray}, 'sortByKey');
+?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>array_sort_php_single</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

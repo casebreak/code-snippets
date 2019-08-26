@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+<?php \$${1:class}Obj = \$block->getLayout()->createBlock('FirstScribe\HelperMethods\Block\\${2:Class}');
+\$${3:variable} = \$${1:class}Obj->${4:method}(); ?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_2_call_fs_helper_method</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

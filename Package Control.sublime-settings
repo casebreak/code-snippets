@@ -1,0 +1,26 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Automatic Backups",
+		"Autoprefixer",
+		"BracketHighlighter",
+		"Comment-Snippets",
+		"CSS Comments",
+		"Emmet",
+		"Emmet Css Snippets",
+		"Git",
+		"HTML-CSS-JS Prettify",
+		"Idiomatic-CSS-Comments-Snippets",
+		"jQuery",
+		"LESS",
+		"Package Control",
+		"PackageResourceViewer",
+		"Sass",
+		"WordPress Completions"
+	]
+}

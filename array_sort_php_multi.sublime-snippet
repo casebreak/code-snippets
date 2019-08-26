@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+<?php 
+function sortMultiple(\$array, \$key_one, \$key_two) {
+	foreach (\$array as \$key => \$row) {
+	    \$sort_1[\$key] = \$row[\$key_one];
+	    \$sort_2[\$key] = \$row[\$key_two];
+	}
+	array_multisort(\$sort_1, SORT_ASC, \$sort_2, SORT_ASC, \$array);
+	return \$array;
+}
+
+\$${1:myArray} = sortMultiple(\$${1:myArray}, '${2:keyOne}', '${3:keyTwo}');
+?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>array_sort_php_multi</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

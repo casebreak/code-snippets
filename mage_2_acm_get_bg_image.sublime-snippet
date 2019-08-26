@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+<?php echo str_replace(' ', '%20', \$${1:var}->getImage(${2:identifier}, ${3:\$width = NULL}, ${4:\$height = NULL}, ${5:\$keepAspectRatio = false}, ${6:\$cropped = false})); ?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_2_acm_get_bg_image</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

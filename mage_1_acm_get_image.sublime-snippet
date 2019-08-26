@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+<?php echo \$${1:var}->getImage(${2:identifier}, ${3:\$width = NULL}, ${4:\$height = NULL}, ${5:\$original = false}); ?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_1_acm_get_image</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

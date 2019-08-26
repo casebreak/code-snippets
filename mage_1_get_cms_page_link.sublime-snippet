@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+<a href="<?php echo Mage::helper('cms/page')->getPageUrl(${1:page_id}) ?>"><?php echo Mage::getModel('cms/page')->load(${1:page_id})->getTitle(); ?></a>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_1_get_cms_page_link</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

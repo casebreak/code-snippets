@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+:after { content: '\f077'; color: ${1:black}; font-size:${2:20}px; display: inline-block; font-family: 'FontAwesome'; }$3
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>chevron-up</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.less</scope>
+</snippet>

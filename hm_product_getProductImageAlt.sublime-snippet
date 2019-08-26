@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+getProductImageAlt(${1:\$product_id}, ${2:\$type = 'image'})
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hm_product_getProductImageAlt</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

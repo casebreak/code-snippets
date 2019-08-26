@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+<?php \$${1:content} = Mage::getModel('contentmanager/content')->load(${2:id}); ?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_1_load_acm_page</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

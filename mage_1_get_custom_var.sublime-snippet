@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+<?php echo Mage::getModel('core/variable')->loadByCode('${1:identifier}')->getValue('${2:plain/html}'); ?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mage_1_get_custom_var</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

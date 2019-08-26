@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+getAttributesFromGroup(${1:\$attributeSetId = 4}, ${2:\$groupName}, ${3:\$product})
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hm_product_getAttributesFromGroup</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
