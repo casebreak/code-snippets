@@ -1,0 +1,741 @@
+{
+	"array_sort_js_single": {
+		"prefix": "array_sort_js_single",
+		"body": "function sortArray(array, key) {\r\n\treturn array.sort(function(a, b) {\r\n\t    var x = a[key]; var y = b[key];\r\n\t    return ((x < y) ? -1 : ((x > y) ? 1 : 0));\r\n\t});\r\n}",
+		"description": "",
+		"scope": ""
+	},
+	"array_sort_php_multi": {
+		"prefix": "array_sort_php_multi",
+		"body": "<?php \r\nfunction sortMultiple($array, $key_one, $key_two) {\r\n\tforeach ($array as $key => $row) {\r\n\t    $sort_1[$key] = $row[$key_one];\r\n\t    $sort_2[$key] = $row[$key_two];\r\n\t}\r\n\tarray_multisort($sort_1, SORT_ASC, $sort_2, SORT_ASC, $array);\r\n\treturn $array;\r\n}\r\n\r\n$${1:myArray} = sortMultiple($${1:myArray}, '${2:keyOne}', '${3:keyTwo}');\r\n?>",
+		"description": "",
+		"scope": ""
+	},
+	"array_sort_php_single": {
+		"prefix": "array_sort_php_single",
+		"body": "<?php\r\nfunction sortByKey($$a, $$b) {\r\n\t$$a = $$a['${2:key}'];\r\n\t$$b = $$b['${2:key}'];\r\n\r\n\tif ($$a == $$b)\r\n\t\treturn 0;\r\n\r\n\treturn ($$a < $$b) ? -1 : 1;\r\n}\r\nusort($${1:myArray}, 'sortByKey');\r\n?>",
+		"description": "",
+		"scope": ""
+	},
+	"bg-srcset": {
+		"prefix": "bg-srcset",
+		"body": "<?php \r\n$desktop_image = $content->getImage('desktop_image', NULL, NULL, true);\r\n$tablet_image  = $content->getData('tablet_image') ? $content->getImage('tablet_image', NULL, NULL, true) : $desktop_image;\r\n$mobile_image  = $content->getData('mobile_image') ? $content->getImage('mobile_image', NULL, NULL, true) : $desktop_image; ?>\r\n\t\t\r\n<div class=\"bg-srcset background-cover\" \r\n\t data-mobile=\"<?php echo $mobile_image ?>\" \r\n\t data-tablet=\"<?php echo $tablet_image ?>\"\r\n\t data-desktop=\"<?php echo $desktop_image ?>\" \r\n\t data-mobile-breakpoint=\"600\" \r\n\t data-tablet-breakpoint=\"1024\">\r\n\t${1:}\r\n</div>",
+		"description": "",
+		"scope": ""
+	},
+	"centerx": {
+		"prefix": "centerx",
+		"body": "left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%);",
+		"description": "",
+		"scope": ""
+	},
+	"centery": {
+		"prefix": "centery",
+		"body": "top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%);",
+		"description": "",
+		"scope": ""
+	},
+	"cl": {
+		"prefix": "cl",
+		"body": "console.log(${1:});",
+		"description": "",
+		"scope": ""
+	},
+	"wpdoc": {
+		"prefix": "wpdoc",
+		"body": "<?php\r\n/**\r\n* The template for displaying ${1:name}\r\n*\r\n*\r\n* @author Michael Zenner <mzenner@firstscribe.com>\r\n* @version ${2:month}-${3:day}-2017\r\n*/\r\n?>\r\n",
+		"description": "",
+		"scope": ""
+	},
+	"ds": {
+		"prefix": "ds",
+		"body": ".drop-shadow(${1:0}px, ${2:0}px, ${3:0}px, ${4:0});",
+		"description": "",
+		"scope": ""
+	},
+	"encaps": {
+		"prefix": "encaps",
+		"body": "(function() {\r\n\t${1:}\r\n})();",
+		"description": "",
+		"scope": ""
+	},
+	"featured_image": {
+		"prefix": "featured_image",
+		"body": "<?php if(get_the_post_thumbnail()) :\r\n\t$image_id = get_post_meta($post -> ID, '_thumbnail_id', false)[0];\r\n\t$image = get_post($image_id);\r\n\tthe_post_thumbnail('${1:featured-image}', array('class' => '${2:responsive}', 'title' => $image -> post_title));\r\nendif; ?>",
+		"description": "",
+		"scope": ""
+	},
+	"finset": {
+		"prefix": "finset",
+		"body": "->addAttributeToFilter('${1:attribute}', array('finset' => ${2:filter_value}))",
+		"description": "",
+		"scope": ""
+	},
+	"ai": {
+		"prefix": "ai",
+		"body": ".align-items(${1:center});",
+		"description": "",
+		"scope": ""
+	},
+	"fdir": {
+		"prefix": "fdir",
+		"body": ".flex-direction(${1:column});",
+		"description": "",
+		"scope": ""
+	},
+	"fd": {
+		"prefix": "fd",
+		"body": ".flex-display();",
+		"description": "",
+		"scope": ""
+	},
+	"jc": {
+		"prefix": "jc",
+		"body": ".justify-content(${1:center);",
+		"description": "",
+		"scope": ""
+	},
+	"flex": {
+		"prefix": "flex",
+		"body": "<?php if( have_rows('${1:field_name}') ):\r\n    while ( have_rows('${1:field_name}') ) : the_row();\r\n\t\tswitch (get_row_layout()) {\r\n\t\t\tcase '${2:layout_slug}':\r\n\t\t\t\tget_template_part('layouts/${2:layout_slug}');\r\n\t\t\t\tbreak;\r\n\t\t}\r\n    endwhile;\r\nendif; ?>",
+		"description": "",
+		"scope": ""
+	},
+	"gp": {
+		"prefix": "gp",
+		"body": "<?php $args = array(\r\n\t'posts_per_page'   => ${1:5},\r\n\t'offset'           => 0,\r\n\t'category'         => '',\r\n\t'category_name'    => '',\r\n\t'orderby'          => 'menu_order',\r\n\t'order'            => 'ASC',\r\n\t'include'          => '',\r\n\t'exclude'          => '',\r\n\t'meta_key'         => '',\r\n\t'meta_value'       => '',\r\n\t'post_type'        => '${2:post}',\r\n\t'post_mime_type'   => '',\r\n\t'post_parent'      => '',\r\n\t'author'\t       => '',\r\n\t'post_status'      => 'publish',\r\n\t'suppress_filters' => true \r\n);\r\n$${3:posts} = get_posts($args);\r\nforeach ($${3:posts} as $${4:post}) : ?>\r\n \t${5:}\r\n<?php endforeach; ?>",
+		"description": "",
+		"scope": ""
+	},
+	"gmap": {
+		"prefix": "gmap",
+		"body": "<div id=\"map_canvas\"></div>\r\n<script type=\"text/javascript\" src=\"//maps.googleapis.com/maps/api/js\"></script>\r\n<script type=\"text/javascript\">\r\n\tfunction initializeMap() {\r\n\t\tmap_options = {\r\n\t\t\tcenter:          map_center,\r\n\t\t\tzoom:            16,\r\n\t\t\tgestureHandling: 'cooperative',\r\n\t\t\tmapTypeId:       google.maps.MapTypeId.ROADMAP\r\n\t\t};\r\n\r\n\t\tmap = new google.maps.Map(document.getElementById('map_canvas'), map_options);\r\n\t\tmarker = new google.maps.Marker({\r\n\t\t\tposition: map_center,\r\n\t\t\tmap:    map\r\n\t\t});\r\n\t\tinfo_window = new google.maps.InfoWindow({content: info_window_content});\r\n\r\n\t\tgoogle.maps.event.addListener(marker, 'click', function(){\r\n\t\t\tinfo_window.open(map, marker);\r\n\t\t});\r\n\t}\r\n\r\n\tgoogle.maps.event.addDomListener(window,'load',initializeMap);\r\n\r\n\tmap_center = new google.maps.LatLng(45.031781,-93.456144);\r\n\tinfo_window_content = 'address here';\r\n\r\n\tjQuery(window).resize(function() { \r\n\t\tsetTimeout(function(){map.setCenter(map_center);},250);\r\n\t});\r\n</script>",
+		"description": "",
+		"scope": ""
+	},
+	"hm_acm_getAcmCollection": {
+		"prefix": "hm_acm_getAcmCollection",
+		"body": "getAcmCollection(${1:$contentTypeIdentifier})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_acm_getAcmPage": {
+		"prefix": "hm_acm_getAcmPage",
+		"body": "getAcmPage(${1:$id})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_acm_getContent": {
+		"prefix": "hm_acm_getContent",
+		"body": "getContent()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_acm_getContentType": {
+		"prefix": "hm_acm_getContentType",
+		"body": "getContentType(${1:$identifier})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_acm_getOptionCollection": {
+		"prefix": "hm_acm_getOptionCollection",
+		"body": "getOptionCollection(${1:$fieldIdentifier})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_block_getBlockName": {
+		"prefix": "hm_block_getBlockName",
+		"body": "getBlockName(${1:$identifier})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_cart_getCartCount": {
+		"prefix": "hm_cart_getCartCount",
+		"body": "getCartCount()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_category_getCategoryByAttribute": {
+		"prefix": "hm_category_getCategoryByAttribute",
+		"body": "getCategoryByAttribute(${1:$attribute_code, $search_param})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_category_getCategoryById": {
+		"prefix": "hm_category_getCategoryById",
+		"body": "getCategoryById(${1:$categoryId})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_category_getCategoryByName": {
+		"prefix": "hm_category_getCategoryByName",
+		"body": "getCategoryByName(${1:$categoryTitle})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_category_getCategoryIdByAttribute": {
+		"prefix": "hm_category_getCategoryIdByAttribute",
+		"body": "getCategoryIdByAttribute(${1:$attribute_code, $search_param})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_category_getCategoryIdByName": {
+		"prefix": "hm_category_getCategoryIdByName",
+		"body": "getCategoryIdByName(${1:$categoryTitle})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_category_getCurrentCategory": {
+		"prefix": "hm_category_getCurrentCategory",
+		"body": "getCurrentCategory()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_category_getMenuTree": {
+		"prefix": "hm_category_getMenuTree",
+		"body": "getMenuTree(${1:$rootCatId = 2, $showCount = true, $hideEmpty = false})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_cms_getCurrentCmsPage": {
+		"prefix": "hm_cms_getCurrentCmsPage",
+		"body": "getCurrentCmsPage()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_cms_loadCmsPage": {
+		"prefix": "hm_cms_loadCmsPage",
+		"body": "loadCmsPage(${1:$id})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_config_getConfig": {
+		"prefix": "hm_config_getConfig",
+		"body": "getConfig(${1:$path})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_customer_getCustomerAccountCreateUrl": {
+		"prefix": "hm_customer_getCustomerAccountCreateUrl",
+		"body": "getCustomerAccountCreateUrl()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_customer_getCustomerDashboardUrl": {
+		"prefix": "hm_customer_getCustomerDashboardUrl",
+		"body": "getCustomerDashboardUrl()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_customer_getCustomerLoginUrl": {
+		"prefix": "hm_customer_getCustomerLoginUrl",
+		"body": "getCustomerLoginUrl()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_customer_getCustomerLogoutUrl": {
+		"prefix": "hm_customer_getCustomerLogoutUrl",
+		"body": "getCustomerLogoutUrl()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_customer_isCustomerLoggedIn": {
+		"prefix": "hm_customer_isCustomerLoggedIn",
+		"body": "isCustomerLoggedIn()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_customvariable_getCustomVariable": {
+		"prefix": "hm_customvariable_getCustomVariable",
+		"body": "getCustomVariable(${1:$variable})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_generic_convertState": {
+		"prefix": "hm_generic_convertState",
+		"body": "convertState(${1:$name, $to='name'})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_generic_formatPhone": {
+		"prefix": "hm_generic_formatPhone",
+		"body": "formatPhone(${1:$number})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_generic_getDistance": {
+		"prefix": "hm_generic_getDistance",
+		"body": "getDistance(${1:$lat1, $lon1, $lat2, $lon2, $unit})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_generic_hex2rgb": {
+		"prefix": "hm_generic_hex2rgb",
+		"body": "hex2rgb(${1:$hex})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_image_filterOutputHtml": {
+		"prefix": "hm_image_filterOutputHtml",
+		"body": "filterOutputHtml(${1:$string})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getAttributeLabel": {
+		"prefix": "hm_product_getAttributeLabel",
+		"body": "getAttributeLabel(${1:$attrCode}, ${2:$id}, ${3:$product})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getAttributeOptions": {
+		"prefix": "hm_product_getAttributeOptions",
+		"body": "getAttributeOptions(${1:$attrCode})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getAttributesFromGroup": {
+		"prefix": "hm_product_getAttributesFromGroup",
+		"body": "getAttributesFromGroup(${1:$attributeSetId = 4}, ${2:$groupName}, ${3:$product})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getCurrentProduct": {
+		"prefix": "hm_product_getCurrentProduct",
+		"body": "getCurrentProduct()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getPlaceholderImage": {
+		"prefix": "hm_product_getPlaceholderImage",
+		"body": "getPlaceholderImage()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getProductById": {
+		"prefix": "hm_product_getProductById",
+		"body": "getProductById(${1:$id})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getProductBySku": {
+		"prefix": "hm_product_getProductBySku",
+		"body": "getProductBySku(${1:$sku})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getProductCollection": {
+		"prefix": "hm_product_getProductCollection",
+		"body": "getProductCollection()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getProductImageAlt": {
+		"prefix": "hm_product_getProductImageAlt",
+		"body": "getProductImageAlt(${1:$product_id}, ${2:$type = 'image'})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getProductImageType": {
+		"prefix": "hm_product_getProductImageType",
+		"body": "getProductImageType(${1:$product_id, $type = 'image', $width = 500, $height = 500})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_product_getStockQty": {
+		"prefix": "hm_product_getStockQty",
+		"body": "getStockQty(${1:$product})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_request_getParams": {
+		"prefix": "hm_request_getParams",
+		"body": "getParams()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_request_getPost": {
+		"prefix": "hm_request_getPost",
+		"body": "getPost()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_request_getSessionData": {
+		"prefix": "hm_request_getSessionData",
+		"body": "getSessionData(${1:$key, $remove = false})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_request_setSessionData": {
+		"prefix": "hm_request_setSessionData",
+		"body": "setSessionData(${1:$key, $value})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_store_allAvailableMethods": {
+		"prefix": "hm_store_allAvailableMethods",
+		"body": "getStoreName()\r\ngetStorePhone()\r\ngetStoreHours()\r\ngetStoreCountry()\r\ngetStorePostCode()\r\ngetStoreCity()\r\ngetStoreAddressOne()\r\ngetStoreAddressTwo()\r\ngetStoreRegion()\r\ngetRegionName(\\region_id)\r\ngetSalesEmail()\r\ngetSalesEmailName()\r\ngetCustomerSupportEmail()\r\ngetCustomerSupportEmailName()\r\ngetCustomOneEmail()\r\ngetCustomOneEmailName()\r\ngetCustomTwoEmail()\r\ngetCustomTwoEmailName()\r\ngetGeneralEmail()\r\ngetGeneralEmailName()",
+		"description": "",
+		"scope": ""
+	},
+	"hm_wordpress_getImageById": {
+		"prefix": "hm_wordpress_getImageById",
+		"body": "getImageById(${1:$imageId})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_wordpress_getImageSizeById": {
+		"prefix": "hm_wordpress_getImageSizeById",
+		"body": "getImageSizeById(${1:$imageId, $size})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_wordpress_getOption": {
+		"prefix": "hm_wordpress_getOption",
+		"body": "getOption(${1:$key})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_youtube_getThumbnail": {
+		"prefix": "hm_youtube_getThumbnail",
+		"body": "getThumbnail(${1:$id})",
+		"description": "",
+		"scope": ""
+	},
+	"hm_youtube_getTitle": {
+		"prefix": "hm_youtube_getTitle",
+		"body": "getTitle(${1:$id})",
+		"description": "",
+		"scope": ""
+	},
+	"image": {
+		"prefix": "image",
+		"body": [
+			"<?php $$image = get_field('${1:field_slug}'); ?>",
+			"<img src=\"<?php echo $$image['url'] ?>\" ",
+			"     alt=\"<?php echo $$image['alt'] ?>\"",
+			"     title=\"<?php echo $$image['title'] ?>\"",
+			"     class=\"${2:max-image}\">"
+		],
+		"description": "image"
+	},
+	"ip": {
+		"prefix": "ip",
+		"body": "<?php if($_SERVER['REMOTE_ADDR'] == '173.160.108.141') : ?>\r\n\t${1:}\r\n<?php endif; ?>",
+		"description": "",
+		"scope": ""
+	},
+	"jqf": {
+		"prefix": "jqf",
+		"body": "jQuery('${1:element}').${2:function}",
+		"description": "",
+		"scope": ""
+	},
+	"js_function_object": {
+		"prefix": "js_function_object",
+		"body": "${1:MyFunction} = new function()\r\n{\r\n\tthis.vars = {\r\n\t  variableExample: 1\r\n\t};\r\n\r\n\tthis.init = function() {\r\n\r\n\t};\r\n\r\n    this.${2:anotherFunction} = function() {\r\n        \r\n    };\r\n}\r\n\r\njQuery(function(){${1:MyFunction}.init()});",
+		"description": "",
+		"scope": ""
+	},
+	"m2doc": {
+		"prefix": "m2doc",
+		"body": "<?php\r\n/**\r\n* The template for displaying ${1:description}\r\n*\r\n*\r\n* @author Michael Zenner <mzenner@firstscribe.com>\r\n* @version 2019-${2:month}-${3:day}\r\n*\r\n* @var $block ${4:\\\\Magento\\\\Framework\\\\View\\\\Element\\\\Template}\r\n*/\r\n?>\r\n",
+		"description": "",
+		"scope": ""
+	},
+	"mage_1_acm_get_image": {
+		"prefix": "mage_1_acm_get_image",
+		"body": "<?php echo $${1:var}->getImage(${2:identifier}, ${3:$width = NULL}, ${4:$height = NULL}, ${5:$original = false}); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_1_call_fs_helper": {
+		"prefix": "mage_1_call_fs_helper",
+		"body": "<?php echo Mage::helper('fs_function')->${1:function}(${2:args}); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_1_get_acm_collection": {
+		"prefix": "mage_1_get_acm_collection",
+		"body": "<?php $${1:content_type} = Mage::getModel('contentmanager/content')->getCollection('${2:identifier}')->addAttributeToSelect(array('*'))->addAttributeToFilter('status', 1); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_1_get_cms_page_link": {
+		"prefix": "mage_1_get_cms_page_link",
+		"body": "<a href=\"<?php echo Mage::helper('cms/page')->getPageUrl(${1:page_id}) ?>\"><?php echo Mage::getModel('cms/page')->load(${1:page_id})->getTitle(); ?></a>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_1_get_custom_var": {
+		"prefix": "mage_1_get_custom_var",
+		"body": "<?php echo Mage::getModel('core/variable')->loadByCode('${1:identifier}')->getValue('${2:plain/html}'); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_1_get_layout_handles": {
+		"prefix": "mage_1_get_layout_handles",
+		"body": "<pre><?php var_dump(Mage::app()->getLayout()->getUpdate()->getHandles()); ?></pre>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_name_layout": {
+		"prefix": "mage_name_layout",
+		"body": "<pre><?php var_dump($this->getNameInLayout()); ?></pre>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_include": {
+		"prefix": "mage_include",
+		"body": "<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('${3:blue-ribbon}')->toHtml(); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_include1": {
+		"prefix": "mage_include",
+		"body": "<?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe.phtml')->toHtml(); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_1_load_acm_page": {
+		"prefix": "mage_1_load_acm_page",
+		"body": "<?php $${1:content} = Mage::getModel('contentmanager/content')->load(${2:id}); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"skin": {
+		"prefix": "skin",
+		"body": "<?php echo Mage::getDesign()->getSkinUrl(); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_acm_get_bg_image": {
+		"prefix": "mage_2_acm_get_bg_image",
+		"body": "<?php echo str_replace(' ', '%20', $${1:var}->getImage(${2:identifier}, ${3:$width = NULL}, ${4:$height = NULL}, ${5:$keepAspectRatio = false}, ${6:$cropped = false})); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_acm_get_image": {
+		"prefix": "mage_2_acm_get_image",
+		"body": "<?php echo $${1:var}->getImage(${2:identifier}, ${3:$width = NULL}, ${4:$height = NULL}, ${5:$keepAspectRatio = false}, ${6:$cropped = false}); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_basic_block_class": {
+		"prefix": "mage_2_basic_block_class",
+		"body": "class=\"Magento\\Framework\\View\\Element\\Template\"",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_block_xml_args": {
+		"prefix": "mage_2_block_xml_args",
+		"body": "<arguments>\r\n\t<argument name=\"${1:data}\" xsi:type=\"string\">${2:value}</argument>\r\n</arguments>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_call_fs_helper_method": {
+		"prefix": "mage_2_call_fs_helper_method",
+		"body": "<?php $${1:varName}Obj = $this->helper('FirstScribe\\${2:Helper}Methods\\Helper\\${3:Class}');\r\n$${4:variable} = $${1:varName}Obj->${5:method}; ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_class_skeleton": {
+		"prefix": "mage_2_class_skeleton",
+		"body": "<?php\r\n/**\r\n* ${1:Class Description}\r\n*/\r\nnamespace FirstScribe\\${2:Module}\\${3:dir};\r\n\r\nuse Psr\\Log\\LoggerInterface;\r\n\r\nclass ${4:ClassName}\r\n{\r\n\tprotected $logger;\r\n\r\n\tpublic function __construct(\r\n\t\tLoggerInterface $logger\r\n\t) {\r\n\t\t$this->logger = $logger;\r\n\t}\r\n\t\r\n\tpublic function ${5:yourMethod}() {\r\n\t\t//$this->logger->debug('debug message');\r\n\t\t${6}\r\n\t}\r\n}",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_class_skeleton_block": {
+		"prefix": "mage_2_class_skeleton_block",
+		"body": "<?php\r\n/**\r\n * ${1:Class Description}\r\n *\r\n * @category            FirstScribe\r\n * @package             FirstScribe_${2:PackageName}\r\n * @copyright           Copyright (c) 2019 Perrill (www.perrill.com)\r\n * @author              Michael Zenner <mzenner@perrill.com>\r\n */\r\n\r\nnamespace FirstScribe\\${2:PackageName}\\Block\\${3:dir};\r\n\r\nclass ${4:ClassName} extends \\Magento\\Framework\\View\\Element\\Template\r\n{\r\n\tpublic function __construct(\r\n\t\t\\Magento\\Backend\\Block\\Template\\Context $context,\r\n\t\tarray $data = []\r\n\t) {\r\n\t\tparent::__construct($context, $data);\r\n\t}\r\n\t\r\n\tpublic function ${5:yourMethod}() \r\n\t{\r\n\t\t\r\n\t}\r\n}\r\n",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_class_skeleton_controller": {
+		"prefix": "mage_2_class_skeleton_controller",
+		"body": "<?php\r\n/**\r\n * ${1:Class Description}\r\n *\r\n * @category            FirstScribe\r\n * @package             FirstScribe_${2:PackageName}\r\n * @copyright           Copyright (c) 2019 Perrill (www.perrill.com)\r\n * @author              Michael Zenner <mzenner@perrill.com>\r\n */\r\n\r\nnamespace FirstScribe\\${2:PackageName}\\Controller\\${3:dir};\r\n\r\nuse Magento\\Framework\\App\\Action\\Action;\r\nuse Magento\\Framework\\App\\Action\\Context;\r\nuse Magento\\Framework\\Controller\\Result\\JsonFactory;\r\n\r\nclass ${4:ClassName} extends Action\r\n{\r\n    /**\r\n     * @var Magento\\Framework\\Controller\\Result\\JsonFactory\r\n     */\r\n    protected $_jsonFactory;\r\n\r\n    public function __construct(\r\n        JsonFactory $jsonFactory,\r\n        Context $context\r\n    ) {\r\n        $this->_jsonFactory = $jsonFactory;\r\n        parent::__construct($context);\r\n    }\r\n\r\n    public function execute()\r\n    {\r\n        $result = $this->_jsonFactory->create();\r\n        $post   = $this->getRequest()->getParams();\r\n\r\n        return $result->setData('val');\r\n    }\r\n}\r\n",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_model_class_skeleton": {
+		"prefix": "mage_2_model_class_skeleton",
+		"body": "<?php\r\n/**\r\n * ${1:Class Description}\r\n *\r\n * @category            FirstScribe\r\n * @package             FirstScribe_${2:PackageName}\r\n * @copyright           Copyright (c) 2019 Perrill (www.perrill.com)\r\n * @author              Michael Zenner <mzenner@perrill.com>\r\n */\r\n\r\nnamespace FirstScribe\\${2:PackageName}\\Model\\${3:dir};\r\n\r\nclass ${4:ClassName}\r\n{\r\n    /**\r\n     * @var \\Magento\\Example\\Class\r\n     */\r\n    protected $example;\r\n\r\n    public function __construct(\r\n        \r\n    ) {\r\n        \r\n    }\r\n}\r\n",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_get_acm_menu_phtml": {
+		"prefix": "mage_2_get_acm_menu_phtml",
+		"body": "<?php $acmMenu = $block->getLayout()->createBlock('Blackbird\\MenuManager\\Block\\Menu')->setData('menu', '${1:menuid}'); ?>\r\n<nav class=\"custom-navigation\">\r\n    <ul>\r\n        <?= $acmMenu->getMenuHtml(); ?>\r\n    </ul>\r\n</nav>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_get_acm_menu_xml": {
+		"prefix": "mage_2_get_acm_menu_xml",
+		"body": "<block name=\"${1:main-menu}\" class=\"Blackbird\\MenuManager\\Block\\Menu\">\r\n   <arguments>\r\n      <argument name=\"menu\" xsi:type=\"string\">${2:main_menu}</argument>\r\n   </arguments>\r\n</block>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_get_images_dir": {
+		"prefix": "mage_2_get_images_dir",
+		"body": "<?php echo $this->getViewFileUrl('images/${1:filename}'); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_get_object_manager": {
+		"prefix": "mage_2_get_object_manager",
+		"body": "<?php $objectManager = \\Magento\\Framework\\App\\ObjectManager::getInstance();\r\n$content = $objectManager->create('Blackbird\\ContentManager\\Model\\Content')->load(${1:id_here}); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_getlayouthandles": {
+		"prefix": "mage_2_getlayouthandles",
+		"body": "<?php $objectManager = \\Magento\\Framework\\App\\ObjectManager::getInstance();\r\n$xmlLayout = $objectManager->get(\\Magento\\Framework\\App\\View::class); ?>\r\n<pre><?php var_dump($xmlLayout->getLayout()->getUpdate()->getHandles()); ?></pre>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_include_block": {
+		"prefix": "mage_2_include_block",
+		"body": "<?php echo $block->getLayout()->createBlock('Magento\\Cms\\Block\\Block')->setBlockId('${1:id_here}')->toHtml(); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_include_block_xml": {
+		"prefix": "mage_2_include_block_xml",
+		"body": "<block class=\"Magento\\Cms\\Block\\Block\" name=\"${1:name}\">\r\n    <arguments>\r\n        <argument name=\"block_id\" xsi:type=\"string\">${2:id}</argument>\r\n    </arguments>\r\n</block>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_include": {
+		"prefix": "mage_2_include",
+		"body": "<?php echo $this->getLayout()->createBlock(\"Magento\\Framework\\View\\Element\\Template\")->setTemplate(\"Magento_Theme::html/file.phtml\")->toHtml();?>",
+		"description": "",
+		"scope": ""
+	},
+	"mage_2_sql": {
+		"prefix": "mage_2_sql",
+		"body": "protected $resourceConnection;\r\n\\Magento\\Framework\\App\\ResourceConnection $resourceConnection\r\n$this->resourceConnection = $resourceConnection;\r\n\r\n$connection = $this->resourceConnection->getConnection();\r\n$sql        = \"SELECT `additional_information` FROM `cminds_multiuseraccounts_subaccount` WHERE `customer_id` = $customerId\";\r\n$connection->query($sql);\r\n$result = $connection->fetchAll($sql);",
+		"description": "",
+		"scope": ""
+	},
+	"mq": {
+		"prefix": "mq",
+		"body": "@media (${1:min}-width: ${2:1200}px) {\r\n\t${3}\r\n}",
+		"description": "",
+		"scope": ""
+	},
+	"php_function_documentation": {
+		"prefix": "php_function_documentation",
+		"body": "/**\r\n * ${1:Description of function}\r\n *\r\n * @param ${2:int} $${3:var} - ${4:description}\r\n * @return ${5:bool} $${6:return} - ${7:description}\r\n */",
+		"description": "",
+		"scope": ""
+	},
+	"pvd": {
+		"prefix": "pvd",
+		"body": "<pre><?php var_dump(${1:}); ?></pre>",
+		"description": "",
+		"scope": ""
+	},
+	"rf": {
+		"prefix": "rf",
+		"body": "<?php $${1:} = get_field('${1:}');\r\nfor ($i=0; $i < count($${1:}); $i++) : ?>\r\n \t${2:}\r\n<?php endfor; ?>",
+		"description": "",
+		"scope": ""
+	},
+	"require": {
+		"prefix": "require",
+		"body": "require([\"jquery\"],function($){\r\n\t${1:}\r\n});",
+		"description": "",
+		"scope": ""
+	},
+	"r_image": {
+		"prefix": "r_image",
+		"body": "<?php echo wp_get_attachment_image( get_field('${1:field_slug}'), 'full', false, array('class' => '${2:responsive}') ); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"rsync": {
+		"prefix": "rsync",
+		"body": "rsync -av ${1:user}@${2:domain}:~/httpdocs/pub/media/* pub/media/",
+		"description": "",
+		"scope": ""
+	},
+	"srcset": {
+		"prefix": "srcset",
+		"body": "<?php \r\n$desktop_image = $content->getImage('desktop_image', NULL, NULL, true);\r\n$mobile_image  = $content->getData('mobile_image') ? $content->getImage('mobile_image', NULL, NULL, true) : $desktop_image;\r\n$tablet_image  = $content->getData('tablet_image') ? $content->getImage('tablet_image', NULL, NULL, true) : $desktop_image; ?>\r\n\r\n<picture>\r\n\t<source media=\"(min-width: 1025px)\" srcset=\"<?php echo $desktop_image ?>\">\r\n\t<source media=\"(min-width: 601px)\" srcset=\"<?php echo $tablet_image ?>\">\r\n\t<img src=\"<?php echo $mobile_image ?>\" alt=\"\" class=\"responsive\">\r\n</picture>",
+		"description": "",
+		"scope": ""
+	},
+	"tf": {
+		"prefix": "tf",
+		"body": ".transform(${1:translate}${2:Y}($3));",
+		"description": "",
+		"scope": ""
+	},
+	"trans": {
+		"prefix": "trans",
+		"body": ".transition(${1:all}, ${2:0.3s});",
+		"description": "",
+		"scope": ""
+	},
+	"vd": {
+		"prefix": "vd",
+		"body": "<?php var_dump(${1:}); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"vert_mid": {
+		"prefix": "vert_mid",
+		"body": "top: 50%; \ntransform: translateY(-50%); \n-webkit-transform: translateY(-50%); \n-moz-transform: translateY(-50%);",
+		"description": "",
+		"scope": ""
+	},
+	"fsgtp": {
+		"prefix": "fsgtp",
+		"body": "<?php FirstScribe_Helpers::fs_get_template_part( '${1:template-parts}/${2:template}', [${3:key} => ${4:value}]); ?>",
+		"description": "",
+		"scope": ""
+	},
+	"gf": {
+		"prefix": "gf",
+		"body": "get_field('${1:field-name}')",
+		"description": "",
+		"scope": ""
+	},
+	"gtp": {
+		"prefix": "gtp",
+		"body": "get_template_part('${1:template-parts}/${2:template}');",
+		"description": "",
+		"scope": ""
+	},
+
+	// CUSTOM ADDED BY SCOTT
+	"jQuery Document Ready": {
+  		"prefix": "docready",
+  		"body": [
+    		"jQuery(document).ready(function($) {",
+    		"\t${1}",
+    		"});"
+  		],
+  		"description": "jQuery Document Ready"
+	},
+	"Align Middle": {
+		"prefix": "middle_align",
+		"body": [
+			"top: 50%;",
+			"left: 50%;",
+			".transform(translate(-50%,-50%));"
+		],
+		"description": "Align Middle"
+	},
+	"Debug Log In Production": {
+	"prefix": "mage_2_debug_log_production",
+	"body": [
+		"<?php",
+		"\\$writer = new \\Zend\\Log\\Writer\\Stream(BP . '/var/log/${1:filename}.log');",
+		"\\$logger = new \\Zend\\Log\\Logger();",
+		"\\$logger->addWriter(\\$writer);",
+		"\\$logger->info(print_r(${2:message},2));",
+		"?>"
+	],
+	"description": "Debug Log In Production"
+	}
+}
